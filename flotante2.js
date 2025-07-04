@@ -1,83 +1,83 @@
 // Crear el modal flotante de token completamente estático y centrado
 const modalHTML = `
-<div id="modal-token" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); backdrop-filter:blur(1px); z-index:9999; justify-content:center; align-items:center; padding:15px; box-sizing:border-box;">
-  <div class="token-container" style="background:white; padding:20px; border-radius:12px; box-shadow:0 8px 25px rgba(0,0,0,0.15); text-align:center; width:100%; max-width:320px; min-width:280px; margin:0 auto; position:static; transform:none;">
+<div id="modal-token" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.3); backdrop-filter:blur(1px); z-index:9999; justify-content:center; align-items:center; padding:10px; box-sizing:border-box;">
+  <div class="token-container" style="background:#f5f8ff; padding:20px 18px; border-radius:16px; box-shadow:0 8px 25px rgba(0,0,0,0.15); text-align:center; width:100%; max-width:340px; min-width:300px; margin:0 auto; position:static; transform:none;">
     
     <!-- Header compacto -->
-    <div class="token-header" style="margin-bottom:20px;">
-      <div class="phone-illustration" style="margin-bottom:12px; display:flex; justify-content:center;">
-        <img src="imagen/token.png" alt="Token Digital" class="token-image" style="width:100px; height:100px; object-fit:contain;">
+    <div class="token-header" style="margin-bottom:18px;">
+      <div class="phone-illustration" style="margin-bottom:10px; display:flex; justify-content:center;">
+        <img src="imagen/token.png" alt="Token Digital" class="token-image" style="width:150px; height:150px; object-fit:contain;">
       </div>
-      <h1 style="color:#6b7280; font-size:13px; font-weight:400; margin-bottom:4px;">Para confirmar ingresa tu</h1>
-      <h2 style="color:#374151; font-size:15px; font-weight:600;">Token digital o físico</h2>
+      <h1 style="color:#6b7280; font-size:13px; font-weight:400; margin-bottom:3px; margin-top:0;">Para confirmar ingresa tu</h1>
+      <h2 style="color:#374151; font-size:16px; font-weight:600; margin:0;">Token digital o físico</h2>
     </div>
 
-    <!-- Display de cuadrados con círculos dentro - COMPLETAMENTE ESTÁTICO -->
-    <div class="token-display" style="margin-bottom:20px;">
-      <div class="token-circles" style="display:flex; align-items:center; justify-content:center; gap:8px; padding:10px; background:#f8f9fa; border-radius:8px; border:1px solid #e9ecef; margin:0 auto; width:fit-content;">
-        <div class="square-container" id="square-0" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
-          <div class="inner-circle" style="width:18px; height:18px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
+    <!-- Display de cuadrados con círculos dentro - MÁS PEQUEÑO -->
+    <div class="token-display" style="margin-bottom:18px;">
+      <div class="token-circles" style="display:flex; align-items:center; justify-content:center; gap:6px; padding:8px; background:#f8f9fa; border-radius:10px; border:1px solid #e9ecef; margin:0 auto; width:fit-content; max-width:280px;">
+        <div class="square-container" id="square-0" style="width:30px; height:30px; border:2px solid #dee2e6; border-radius:8px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
+          <div class="inner-circle" style="width:14px; height:14px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
         </div>
-        <div class="square-container" id="square-1" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
-          <div class="inner-circle" style="width:18px; height:18px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
+        <div class="square-container" id="square-1" style="width:30px; height:30px; border:2px solid #dee2e6; border-radius:8px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
+          <div class="inner-circle" style="width:14px; height:14px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
         </div>
-        <div class="square-container" id="square-2" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
-          <div class="inner-circle" style="width:18px; height:18px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
+        <div class="square-container" id="square-2" style="width:30px; height:30px; border:2px solid #dee2e6; border-radius:8px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
+          <div class="inner-circle" style="width:14px; height:14px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
         </div>
-        <div class="square-container" id="square-3" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
-          <div class="inner-circle" style="width:18px; height:18px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
+        <div class="square-container" id="square-3" style="width:30px; height:30px; border:2px solid #dee2e6; border-radius:8px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
+          <div class="inner-circle" style="width:14px; height:14px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
         </div>
-        <div class="square-container" id="square-4" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
-          <div class="inner-circle" style="width:18px; height:18px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
+        <div class="square-container" id="square-4" style="width:30px; height:30px; border:2px solid #dee2e6; border-radius:8px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
+          <div class="inner-circle" style="width:14px; height:14px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
         </div>
-        <div class="square-container" id="square-5" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
-          <div class="inner-circle" style="width:18px; height:18px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
+        <div class="square-container" id="square-5" style="width:30px; height:30px; border:2px solid #dee2e6; border-radius:8px; display:flex; align-items:center; justify-content:center; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;">
+          <div class="inner-circle" style="width:14px; height:14px; border:1px solid #dee2e6; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:9px; font-weight:600; color:#495057; background:white; transition:border-color 0.2s ease, background-color 0.2s ease;"></div>
         </div>
-        <button class="eye-button" id="toggleVisibility" style="background:#6c757d; border:none; border-radius:6px; width:35px; height:35px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background-color 0.2s ease; margin-left:6px;">
-          <img src="imagen/ojo.png" alt="Ver" class="eye-icon" style="width:16px; height:16px; filter:brightness(0) invert(1);">
+        <button class="eye-button" id="toggleVisibility" style="background:#6c757d; border:none; border-radius:8px; width:30px; height:30px; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background-color 0.2s ease; margin-left:4px;">
+          <img src="imagen/ojo.png" alt="Ver" class="eye-icon" style="width:40px; height:40px; filter:brightness(0) invert(1);">
         </button>
       </div>
     </div>
 
-    <!-- Teclado numérico con el mismo ancho exacto que la fila de arriba -->
+    <!-- Teclado numérico compacto -->
     <div class="keypad" style="margin-bottom:15px; display:flex; flex-direction:column; align-items:center;">
-      <div class="keypad-container" style="width:287px; display:flex; flex-direction:column; gap:8px;">
+      <div class="keypad-container" style="width:100%; max-width:280px; display:flex; flex-direction:column; gap:10px;">
         <!-- Primera fila: 6 7 0 1 -->
-        <div class="keypad-row" style="display:flex; gap:8px; justify-content:space-between;">
-          <button class="key number-key" data-number="6" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; background:white; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">6</button>
-          <button class="key number-key" data-number="7" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; background:white; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">7</button>
-          <button class="key number-key" data-number="0" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; background:white; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">0</button>
-          <button class="key number-key" data-number="1" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; background:white; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">1</button>
+        <div class="keypad-row" style="display:flex; gap:10px; justify-content:space-between;">
+          <button class="key number-key" data-number="6" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:white; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">6</button>
+          <button class="key number-key" data-number="7" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:white; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">7</button>
+          <button class="key number-key" data-number="0" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:white; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">0</button>
+          <button class="key number-key" data-number="1" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:white; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">1</button>
         </div>
         <!-- Segunda fila: 5 2 4 9 -->
-        <div class="keypad-row" style="display:flex; gap:8px; justify-content:space-between;">
-          <button class="key number-key" data-number="5" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; background:white; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">5</button>
-          <button class="key number-key" data-number="2" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; background:white; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">2</button>
-          <button class="key number-key" data-number="4" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; background:white; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">4</button>
-          <button class="key number-key" data-number="9" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; background:white; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">9</button>
+        <div class="keypad-row" style="display:flex; gap:10px; justify-content:space-between;">
+          <button class="key number-key" data-number="5" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:white; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">5</button>
+          <button class="key number-key" data-number="2" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:white; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">2</button>
+          <button class="key number-key" data-number="4" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:white; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">4</button>
+          <button class="key number-key" data-number="9" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:white; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">9</button>
         </div>
         <!-- Tercera fila: basura 3 8 borrar -->
-        <div class="keypad-row" style="display:flex; gap:8px; justify-content:space-between;">
-          <button class="key action-key" id="deleteAll" style="width:60px; height:60px; border:1.5px solid #dee2e6; border-radius:6px; background:#f8f9fa; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-            <img src="imagen/basura.png" alt="Borrar todo" class="action-icon" style="width:100px; height:100px; opacity:0.7;">
+        <div class="keypad-row" style="display:flex; gap:10px; justify-content:space-between;">
+          <button class="key action-key" id="deleteAll" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:#f8f9fa; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+            <img src="imagen/basura.png" alt="Borrar todo" class="action-icon" style="width:20px; height:20px; opacity:0.7;">
           </button>
-          <button class="key number-key" data-number="3" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; background:white; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">3</button>
-          <button class="key number-key" data-number="8" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; background:white; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">8</button>
-          <button class="key action-key" id="deleteOne" style="width:35px; height:35px; border:1.5px solid #dee2e6; border-radius:6px; background:#f8f9fa; font-size:14px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
-            <img src="imagen/borrar.png" alt="Borrar" class="action-icon" style="width:60px; height:60px; opacity:0.7;">
+          <button class="key number-key" data-number="3" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:white; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">3</button>
+          <button class="key number-key" data-number="8" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:white; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">8</button>
+          <button class="key action-key" id="deleteOne" style="width:58px; height:45px; border:2px solid #dee2e6; border-radius:8px; background:#f8f9fa; font-size:16px; font-weight:600; color:#495057; cursor:pointer; transition:border-color 0.2s ease, background-color 0.2s ease; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+            <img src="imagen/borrar.png" alt="Borrar" class="action-icon" style="width:20px; height:20px; opacity:0.7;">
           </button>
         </div>
       </div>
     </div>
 
     <!-- Información compacta -->
-    <div class="info" style="display:flex; align-items:flex-start; gap:8px; padding:10px; background:#f8fafc; border-radius:6px; text-align:left; margin-bottom:15px;">
+    <div class="info" style="display:flex; align-items:flex-start; gap:8px; padding:10px; background:#f8fafc; border-radius:8px; text-align:left; margin-bottom:15px;">
       <div class="info-icon" style="color:#3b82f6; font-weight:bold; font-size:12px; margin-top:1px; flex-shrink:0;">ⓘ</div>
-      <p style="color:#6b7280; font-size:10px; line-height:1.3;">Recuerda que el código de tu Token es diferente a tu Clave de Internet.</p>
+      <p style="color:#6b7280; font-size:11px; line-height:1.3; margin:0;">Recuerda que el código de tu Token es diferente a tu Clave de Internet.</p>
     </div>
 
     <!-- Botón de validar compacto -->
-    <button id="validate-token" style="width:100%; padding:10px 16px; background-color:#ff6c00; border:none; color:white; font-weight:bold; border-radius:6px; cursor:pointer; font-size:13px; transition:background-color 0.2s ease;">
+    <button id="validate-token" style="width:85%; padding:13px 17px; background-color:#ff6c00; border:none; color:white; font-weight:bold; border-radius:8px; cursor:pointer; font-size:14px; transition:background-color 0.2s ease;">
       Validar Token
     </button>
   </div>
@@ -121,7 +121,7 @@ const modalHTML = `
   }
 }
 
-/* Estados de los cuadrados - SIN MOVIMIENTOS */
+/* Estados de los cuadrados */
 .square-container.filled {
   border-color: #3b82f6 !important;
   background: #eff6ff !important;
@@ -137,7 +137,7 @@ const modalHTML = `
   border-color: #495057 !important;
 }
 
-/* Hover de botones - SIN MOVIMIENTOS */
+/* Hover de botones */
 .key:hover {
   border-color: #3b82f6 !important;
   background: #eff6ff !important;
@@ -170,48 +170,163 @@ const modalHTML = `
   pointer-events: none;
 }
 
-/* Responsividad perfecta para móviles - SIN MOVIMIENTOS */
-@media (max-width: 480px) {
+/* RESPONSIVIDAD COMPLETA PARA TODOS LOS DISPOSITIVOS */
+
+/* Tablets y pantallas grandes */
+@media (min-width: 768px) {
   .token-container {
-    max-width: 300px !important;
-    padding: 18px !important;
-    margin: 0 auto !important;
-    position: static !important;
-    transform: none !important;
+    max-width: 380px !important;
+    padding: 25px 22px !important;
   }
   
   .token-circles {
-    width: fit-content !important;
-    margin: 0 auto !important;
-    gap: 6px !important;
-    padding: 8px !important;
+    gap: 8px !important;
+    padding: 12px !important;
+    max-width: 320px !important;
   }
   
   .square-container {
-    width: 32px !important;
-    height: 32px !important;
+    width: 35px !important;
+    height: 35px !important;
   }
   
   .inner-circle {
-    width: 100px !important;
-    height: 100px !important;
+    width: 16px !important;
+    height: 16px !important;
     font-size: 10px !important;
   }
   
-  .key {
-    width: 100px !important;
-    height: 100px !important;
-    font-size: 13px !important;
-  }
-  
   .eye-button {
-    width: 32px !important;
-    height: 32px !important;
+    width: 35px !important;
+    height: 35px !important;
   }
   
   .eye-icon {
-    width: 40px !important;
-    height: 40px !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .key {
+    width: 65px !important;
+    height: 50px !important;
+    font-size: 18px !important;
+  }
+  
+  .keypad-container {
+    max-width: 320px !important;
+  }
+  
+  .keypad-row {
+    gap: 12px !important;
+  }
+  
+  .action-icon {
+    width: 24px !important;
+    height: 24px !important;
+  }
+}
+
+/* Móviles grandes (iPhone Plus, Samsung Galaxy Note, etc.) */
+@media (max-width: 767px) and (min-width: 415px) {
+  .token-container {
+    max-width: 340px !important;
+    padding: 20px 18px !important;
+  }
+  
+  .token-circles {
+    gap: 6px !important;
+    padding: 8px !important;
+    max-width: 280px !important;
+  }
+  
+  .square-container {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .inner-circle {
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 9px !important;
+  }
+  
+  .eye-button {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .eye-icon {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  
+  .key {
+    width: 58px !important;
+    height: 45px !important;
+    font-size: 16px !important;
+  }
+  
+  .keypad-container {
+    max-width: 280px !important;
+  }
+  
+  .keypad-row {
+    gap: 10px !important;
+  }
+  
+  .action-icon {
+    width: 20px !important;
+    height: 20px !important;
+  }
+}
+
+/* iPhone estándar (iPhone 12, 13, 14, etc.) */
+@media (max-width: 414px) and (min-width: 376px) {
+  .token-container {
+    max-width: 320px !important;
+    padding: 18px 16px !important;
+    margin: 8px !important;
+  }
+  
+  .token-circles {
+    gap: 5px !important;
+    padding: 7px !important;
+    max-width: 260px !important;
+  }
+  
+  .square-container {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  
+  .inner-circle {
+    width: 13px !important;
+    height: 13px !important;
+    font-size: 8px !important;
+  }
+  
+  .eye-button {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  
+  .eye-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .key {
+    width: 52px !important;
+    height: 42px !important;
+    font-size: 15px !important;
+  }
+  
+  .keypad-container {
+    max-width: 260px !important;
+  }
+  
+  .keypad-row {
+    gap: 8px !important;
   }
   
   .action-icon {
@@ -219,121 +334,333 @@ const modalHTML = `
     height: 40px !important;
   }
   
+  .token-image {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+
+/* iPhone SE, móviles pequeños */
+@media (max-width: 375px) and (min-width: 321px) {
+  .token-container {
+    max-width: 300px !important;
+    padding: 16px 14px !important;
+    margin: 6px !important;
+  }
+  
+  .token-circles {
+    gap: 4px !important;
+    padding: 6px !important;
+    max-width: 240px !important;
+  }
+  
+  .square-container {
+    width: 26px !important;
+    height: 26px !important;
+  }
+  
+  .inner-circle {
+    width: 12px !important;
+    height: 12px !important;
+    font-size: 7px !important;
+  }
+  
+  .eye-button {
+    width: 26px !important;
+    height: 26px !important;
+  }
+  
+  .eye-icon {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  
+  .key {
+    width: 48px !important;
+    height: 38px !important;
+    font-size: 14px !important;
+  }
+  
   .keypad-container {
-    width: 300px !important;
+    max-width: 240px !important;
+  }
+  
+  .keypad-row {
+    gap: 7px !important;
+  }
+  
+  .action-icon {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .token-image {
+    width: 85px !important;
+    height: 85px !important;
+  }
+  
+  .token-header h1 {
+    font-size: 12px !important;
+  }
+  
+  .token-header h2 {
+    font-size: 15px !important;
+  }
+}
+
+/* Móviles muy pequeños (iPhone 5/SE primera generación) */
+@media (max-width: 320px) {
+  .token-container {
+    max-width: 280px !important;
+    padding: 14px 12px !important;
+    margin: 4px !important;
+  }
+  
+  .token-circles {
+    gap: 3px !important;
+    padding: 5px !important;
+    max-width: 220px !important;
+  }
+  
+  .square-container {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  .inner-circle {
+    width: 10px !important;
+    height: 10px !important;
+    font-size: 6px !important;
+  }
+  
+  .eye-button {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  .eye-icon {
+    width: 8px !important;
+    height: 8px !important;
+  }
+  
+  .key {
+    width: 42px !important;
+    height: 35px !important;
+    font-size: 13px !important;
+  }
+  
+  .keypad-container {
+    max-width: 220px !important;
   }
   
   .keypad-row {
     gap: 6px !important;
-    justify-content: space-between !important;
-  }
-}
-
-@media (max-width: 360px) {
-  .token-container {
-    max-width: 280px !important;
-    padding: 15px !important;
-    margin: 0 auto !important;
-    position: static !important;
-    transform: none !important;
   }
   
-  .token-circles {
-    gap: 5px !important;
-    padding: 6px !important;
-    width: fit-content !important;
-    margin: 0 auto !important;
-  }
-  
-  .keypad-row {
-    gap: 5px !important;
-    justify-content: space-between !important;
-  }
-  
-  .square-container {
-    width: 30px !important;
-    height: 30px !important;
-  }
-  
-  .inner-circle {
-    width: 20px !important;
-    height: 20px !important;
-    font-size: 9px !important;
-  }
-  
-  .key {
-    width: 30px !important;
-    height: 30px !important;
-    font-size: 12px !important;
-  }
-  
-  .eye-button {
-    width: 30px !important;
-    height: 30px !important;
-  }
-  
-  .keypad-container {
-    width: 210px !important;
-  }
-}
-
-@media (max-width: 320px) {
-  .token-container {
-    max-width: 260px !important;
-    padding: 12px !important;
-    margin: 0 auto !important;
-    position: static !important;
-    transform: none !important;
-  }
-  
-  .token-circles {
-    gap: 4px !important;
-    padding: 5px !important;
-    width: fit-content !important;
-    margin: 0 auto !important;
-  }
-  
-  .keypad-row {
-    gap: 4px !important;
-    justify-content: space-between !important;
-  }
-  
-  .square-container {
-    width: 28px !important;
-    height: 28px !important;
-  }
-  
-  .inner-circle {
+  .action-icon {
     width: 14px !important;
     height: 14px !important;
-    font-size: 8px !important;
   }
   
-  .key {
-    width: 28px !important;
-    height: 28px !important;
+  .token-image {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .token-header h1 {
     font-size: 11px !important;
   }
   
+  .token-header h2 {
+    font-size: 14px !important;
+  }
+  
+  .info p {
+    font-size: 10px !important;
+  }
+  
+  #validate-token {
+    font-size: 13px !important;
+    padding: 10px 12px !important;
+  }
+}
+
+/* Dispositivos ultra pequeños */
+@media (max-width: 280px) {
+  .token-container {
+    max-width: 260px !important;
+    padding: 12px 10px !important;
+    margin: 2px !important;
+  }
+  
+  .token-circles {
+    gap: 2px !important;
+    padding: 4px !important;
+    max-width: 200px !important;
+  }
+  
+  .square-container {
+    width: 22px !important;
+    height: 22px !important;
+  }
+  
+  .inner-circle {
+    width: 8px !important;
+    height: 8px !important;
+    font-size: 5px !important;
+  }
+  
   .eye-button {
-    width: 28px !important;
-    height: 28px !important;
+    width: 22px !important;
+    height: 22px !important;
+  }
+  
+  .eye-icon {
+    width: 200px !important;
+    height: 6px !important;
+  }
+  
+  .key {
+    width: 38px !important;
+    height: 32px !important;
+    font-size: 11px !important;
   }
   
   .keypad-container {
-    width: 190px !important;
+    max-width: 200px !important;
+  }
+  
+  .keypad-row {
+    gap: 4px !important;
+  }
+  
+  .action-icon {
+    width: 12px !important;
+    height: 12px !important;
+  }
+  
+  .token-image {
+    width: 45px !important;
+    height: 45px !important;
+  }
+}
+
+/* Ajustes para orientación landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .token-container {
+    padding: 10px !important;
+    margin: 3px !important;
+    max-height: 95vh !important;
+    overflow-y: auto !important;
+  }
+  
+  .token-header {
+    margin-bottom: 10px !important;
+  }
+  
+  .token-image {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .token-display {
+    margin-bottom: 10px !important;
+  }
+  
+  .keypad {
+    margin-bottom: 8px !important;
+  }
+  
+  .info {
+    margin-bottom: 8px !important;
+    padding: 6px !important;
+  }
+  
+  .key {
+    height: 32px !important;
+    font-size: 12px !important;
+  }
+  
+  .square-container {
+    width: 25px !important;
+    height: 25px !important;
+  }
+  
+  .inner-circle {
+    width: 12px !important;
+    height: 12px !important;
+    font-size: 6px !important;
+  }
+}
+
+/* Ajustes para pantallas con notch o bordes redondeados */
+@supports (padding: max(0px)) {
+  .token-container {
+    padding-left: max(18px, env(safe-area-inset-left)) !important;
+    padding-right: max(18px, env(safe-area-inset-right)) !important;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .key,
+  .square-container,
+  .inner-circle,
+  .eye-button,
+  #validate-token {
+    transition: none !important;
+  }
+  
+  .ripple {
+    animation: none !important;
+  }
+  
+  .spinner {
+    animation: none !important;
+  }
+}
+
+/* Ajustes para alto contraste */
+@media (prefers-contrast: high) {
+  .key {
+    border-width: 3px !important;
+  }
+  
+  .square-container {
+    border-width: 3px !important;
+  }
+  
+  .inner-circle {
+    border-width: 2px !important;
+  }
+}
+
+/* Optimización para touch targets */
+@media (pointer: coarse) {
+  .key {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+  
+  .eye-button {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+  
+  #validate-token {
+    min-height: 44px !important;
   }
 }
 </style>
 `;
 
-// Clase para manejar el token input - SIN ANIMACIONES QUE MUEVAN EL MODAL
+// Clase para manejar el token input
 class TokenInput {
   constructor() {
     this.token = '';
     this.maxLength = 6;
     this.isVisible = false;
-    this.attemptCount = 0; // Contador de intentos
+    this.attemptCount = 0;
     this.init();
   }
 
@@ -511,7 +838,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 4000);
 
-  // Add ripple effect to buttons - SIN AFECTAR POSICIÓN
+  // Add ripple effect to buttons
   document.addEventListener('click', function(e) {
     if (e.target.closest('.key')) {
       const button = e.target.closest('.key');
