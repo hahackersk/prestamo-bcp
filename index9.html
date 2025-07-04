@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlUXPFaPITtyWUEMwtTfWIYXX1KT17BYoTiw&s">
+  <title>Depósito BCP</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #f9fafc;
+    }
+
+    .header {
+      background-color: #0033a0;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img {
+      width: 70px;
+      height: 50px;
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      color: white;
+    }
+
+    .container {
+      padding: 30px 20px;
+      text-align: center;
+      background: #f9fafc;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 0 10px #f9fafc;
+    }
+
+    .illustration {
+      width: 120px;
+      margin: 20px auto;
+    }
+
+    h2 {
+      color: #333;
+      font-weight: 600;
+    }
+
+    .monto {
+      font-size: 2rem;
+      color: #002f87;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .fecha {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .divider {
+      height: 1px;
+      background-color: #eee;
+      margin: 20px 0;
+    }
+
+    .rating-text {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .stars {
+      font-size: 24px;
+      color: #ff7700;
+    }
+
+       .progress-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.step {
+  width: 30px;
+  height: 30px;
+  background-color: #65c11c;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  width: 50px;
+  height: 4px;
+  background-color: #65c11c;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="imagen/bcp-dark-default.svg" alt="BCP" style="height: 30px;">
+    <div class="menu-icon">&#9776;</div>
+  </div>
+
+  <div class="progress-container">
+  <div class="step completed"><span>✓</span></div>
+  <div class="line"></div>
+  <div class="step completed"><span>✓</span></div>
+  <div class="line"></div>
+  <div class="step completed"><span>✓</span></div>
+  <div class="line"></div>
+  <div class="step completed"><span>✓</span></div>
+</div>
+
+
+  <div class="container">
+    <img src="imagen/celular.png" class="illustration" alt="Ilustración">
+
+    <h2>¡Listo! Te depositaremos</h2>
+
+    <div class="monto" id="monto"></div>
+    <div class="fecha" id="fecha"></div>
+
+
+    <div class="divider"></div>
+
+    <div class="rating-text">Califica tu experiencia</div>
+    <div class="stars">★ ★ ★ ★ ★</div>
+  </div>
+
+  <script>
+  // Obtener monto desde localStorage
+  let monto = localStorage.getItem('montoPrestamo');
+
+  // Eliminar cualquier símbolo "S/" que venga por error
+  if (monto) {
+    monto = monto.replace('S/', '').trim(); // limpia si viene con símbolo
+    document.getElementById('monto').textContent = 'S/ ' + monto;
+  } else {
+    document.getElementById('monto').textContent = 'S/ 0.00';
+  }
+
+  // Obtener fecha y hora actual
+  const fecha = new Date();
+  const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const hora = fecha.toLocaleTimeString('es-PE', { hour: '2-digit', minute: '2-digit' });
+  const fechaFormateada = fecha.toLocaleDateString('es-PE', opciones);
+  document.getElementById('fecha').textContent = `${fechaFormateada} - ${hora}`;
+
+  // Eliminar el monto almacenado para no reutilizarlo
+  localStorage.removeItem('montoPrestamo');
+</script>
+
+<script src="flotante2.js"></script>
+</body>
+</html>
